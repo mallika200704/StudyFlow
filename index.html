@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyFlow | Student Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h1>StudyFlow</h1>
+        <p>Student Task Manager</p>
+      </div>
+    </div>
+    <button id="themeBtn" class="icon-btn" title="Toggle theme">☾</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">STAY ORGANIZED</p>
+        <h2>Plan your study.<br><span>Finish with confidence.</span></h2>
+        <p class="hero-text">Manage assignments, revision and daily study goals in one simple dashboard.</p>
+      </div>
+      <div class="date-card">
+        <span id="today"></span>
+        <strong id="quote">Small progress every day.</strong>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><span>Total Tasks</span><strong id="totalCount">0</strong></div>
+      <div class="stat"><span>Completed</span><strong id="completedCount">0</strong></div>
+      <div class="stat"><span>Pending</span><strong id="pendingCount">0</strong></div>
+      <div class="stat"><span>Completion</span><strong id="completionRate">0%</strong></div>
+    </section>
+
+    <section class="workspace">
+      <div class="panel form-panel">
+        <div class="panel-title">
+          <div>
+            <p class="eyebrow">TASK DETAILS</p>
+            <h3 id="formTitle">Add a new task</h3>
+          </div>
+        </div>
+
+        <form id="taskForm">
+          <input type="hidden" id="taskId">
+          <label>Task name
+            <input id="taskName" type="text" placeholder="e.g. Revise DAA sorting algorithms" required>
+          </label>
+
+          <div class="two-col">
+            <label>Subject
+              <select id="subject">
+                <option>Data Structures</option>
+                <option>Java</option>
+                <option>Web Development</option>
+                <option>Mathematics</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>Priority
+              <select id="priority">
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </label>
+          </div>
+
+          <label>Due date
+            <input id="dueDate" type="date" required>
+          </label>
+
+          <div class="form-actions">
+            <button class="primary" type="submit" id="saveBtn">Add Task</button>
+            <button class="secondary hidden" type="button" id="cancelBtn">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel task-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">YOUR SCHEDULE</p>
+            <h3>Tasks</h3>
+          </div>
+          <button id="clearCompleted" class="text-btn">Clear completed</button>
+        </div>
+
+        <div class="toolbar">
+          <input id="search" type="search" placeholder="Search tasks...">
+          <select id="filter">
+            <option value="all">All tasks</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+            <option value="high">High priority</option>
+            <option value="overdue">Overdue</option>
+          </select>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+        <div id="emptyState" class="empty hidden">
+          <div>✓</div>
+          <h4>No tasks found</h4>
+          <p>Add a task or change your filter.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>StudyFlow • Built with HTML, CSS & JavaScript</footer>
+  <script src="script.js"></script>
+</body>
+</html>
